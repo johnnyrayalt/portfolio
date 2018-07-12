@@ -1,25 +1,18 @@
 import React from 'react';
-import NavLinksContainer from './NavLinksContainer';
-import ContentDisplay from './ContentDisplay';
 
 class ContentDisplayController extends React.Component {
-  render() {
+  render(){
     return(
-      <div className='contentDisplayControllerContainer'>
-        <NavLinksContainer className='navLinksContainer' />
-        <ContentDisplay className='contentDisplay' />
-
+      <div className='contentDisplayContainer'>
         <style jsx>{`
-          .contentDisplayControllerContainer {
-            display:flex;
-          }
-          .navLinksContainer {
-            position: fixed;
+          .contentDisplayContainer {
+            width:100%;
+            border:1px solid black;
+            height: 80vh;
           }
         `}</style>
       </div>
-    );
-  }
+    );}
 }
 
 export default ContentDisplayController;
