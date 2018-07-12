@@ -1,19 +1,15 @@
 import React from 'react';
+import MastHeader from './MastHeader';
 
-function MastHeader() {
-  return(
-    <div className='mastHeaderContainer'>
-      hey
-    </div>
-  );
-}
+class App extends React.Component {
 
-function App() {
-  return (
-    <div>
-      <MastHeader />
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <MastHeader />
+      </div>
+    );
+  }
 }
 
 export default App;

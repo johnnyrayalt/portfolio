@@ -1,0 +1,18 @@
+import React from 'react';
+
+function MastHeader() {
+  return(
+    <div className='mastHeaderContainer'>
+      <h1>
+        Johnny Ray Alt
+      </h1>
+      <style jsx>{`
+        .mastHeaderContainer {
+          font-family: 'Raleway', sans-serif;
+        }
+      `}</style>
+    </div>
+  );
+}
+
+export default MastHeader;
