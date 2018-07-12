@@ -1,16 +1,14 @@
 import React from 'react';
 import MastHeader from './MastHeader';
-import NavLinksContainer from './NavLinksContainer';
+import ContentDisplayController from './ContentDisplayController';
 
 class App extends React.Component {
-
-
 
   render() {
     return (
       <div>
         <MastHeader />
-        <NavLinksContainer />
+        <ContentDisplayController />
       </div>
     );
   }
