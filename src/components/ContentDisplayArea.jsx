@@ -1,7 +1,6 @@
 import React from 'react';
 import NavLinksContainer from './NavLinksContainer';
 import ContentDisplayController from './ContentDisplayController';
-import PropTypes from 'prop-types';
 
 class ContentDisplayArea extends React.Component {
   constructor(props) {

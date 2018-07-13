@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function NavLinksContainer() {
+function NavLinksContainer(props) {
 
   function handleClick() {
-    props.handleShowingSelectedContent(document.getElementById(console.log('hi')));
+    props.handleShowingSelectedContent('value');
   }
 
   return(
@@ -34,7 +34,7 @@ function NavLinksContainer() {
 }
 
 NavLinksContainer.propTypes = {
-  handleShowingSelectedContent: PropTypes.func
+  handleShowingSelectedContent: PropTypes.func,
 };
 
 export default NavLinksContainer;

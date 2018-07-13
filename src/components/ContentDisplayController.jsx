@@ -1,7 +1,6 @@
 import React from 'react';
 import ContentDisplayAbout from './ContentDisplayAbout';
 import ContentDisplayProjectsList from './ContentDisplayProjectsList';
-import PropTypes from 'prop-types';
 
 function ContentDisplayController() {
 
