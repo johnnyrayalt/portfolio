@@ -8,4 +8,4 @@ function ContentDisplayAbout() {
   );
 }
 
-export ContentDisplayAbout;
+export default ContentDisplayAbout;
