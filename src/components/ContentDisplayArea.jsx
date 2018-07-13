@@ -1,23 +1,43 @@
 import React from 'react';
 import NavLinksContainer from './NavLinksContainer';
 import ContentDisplayController from './ContentDisplayController';
+import PropTypes from 'prop-types';
 
-function ContentDisplayArea() {
-  return(
-    <div className='contentDisplayAreaContainer'>
-      <NavLinksContainer className='navLinksContainer' />
-      <ContentDisplayController className='contentDisplay' />
+class ContentDisplayArea extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: [{
+        aboutMe: 1,
+        projectsList: 2,
+      }]
+    };
+    this.handleShowingSelectedContent = this.handleShowingSelectedContent.bind(this);
+  }
 
-      <style jsx>{`
-        .contentDisplayAreaContainer {
-          display:flex;
-        }
-        .navLinksContainer {
-          position: fixed;
-        }
-      `}</style>
-    </div>
-  );
+  handleShowingSelectedContent(selectedLinkStringId) {
+    console.log(selectedLinkStringId);
+  }
+
+  render() {
+    return(
+      <div className='contentDisplayAreaContainer'>
+        <NavLinksContainer
+          handleShowingSelectedContent={this.handleShowingSelectedContent}
+          className='navLinksContainer' />
+        <ContentDisplayController className='contentDisplay' />
+
+        <style jsx>{`
+          .contentDisplayAreaContainer {
+            display:flex;
+          }
+          .navLinksContainer {
+            position: fixed;
+          }
+        `}</style>
+      </div>
+    );
+  }
 }
 
 export default ContentDisplayArea;

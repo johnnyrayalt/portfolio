@@ -1,12 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function NavLinksContainer() {
+
+  function handleClick() {
+    props.handleShowingSelectedContent(document.getElementById(console.log('hi')));
+  }
+
   return(
     <div className='navLinksContainerContainer'>
       <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github</a>
       <a id='projectLink' className='link'>projects</a>
       <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email</a>
-      <a id='aboutLink' className='link'>about</a>
+      <a onClick={handleClick} id='aboutMe' className='link'>about</a>
 
       <style jsx>{`
         .navLinksContainerContainer {
@@ -26,5 +32,9 @@ function NavLinksContainer() {
     </div>
   );
 }
+
+NavLinksContainer.propTypes = {
+  handleShowingSelectedContent: PropTypes.func
+};
 
 export default NavLinksContainer;
