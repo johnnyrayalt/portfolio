@@ -9,10 +9,10 @@ function NavLinksContainer(props) {
 
   return(
     <div className='navLinksContainerContainer'>
-      <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github</a>
       <option onClick={handleClick.bind(this, 0)} className='link'>projects {props.pageIdList[0]}</option>
-      <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email</a>
       <option onClick={handleClick.bind(this, 1)} className='link'>about {props.pageIdList[1]}</option>
+      <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github</a>
+      <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email</a>
 
       <style jsx>{`
         .navLinksContainerContainer {
