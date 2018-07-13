@@ -1,12 +1,12 @@
 import React from 'react';
 import MastHeader from './MastHeader';
-import ContentDisplayArea from './ContentDisplayArea';
+import MainDisplayController from './MainDisplayController';
 
 function App() {
   return (
     <div>
       <MastHeader />
-      <ContentDisplayArea />
+      <MainDisplayController />
     </div>
   );
 }

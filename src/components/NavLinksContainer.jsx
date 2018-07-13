@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 function NavLinksContainer(props) {
 
-  function handleClick() {
-    props.handleShowingSelectedContent('value');
+  function handleClick(pageIdRequested) {
+    props.handleShowingSelectedContent(pageIdRequested);
   }
 
   return(
     <div className='navLinksContainerContainer'>
       <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github</a>
-      <a id='projectLink' className='link'>projects</a>
+      <option onClick={handleClick.bind(this, 0)} className='link'>projects {props.pageIdList[0]}</option>
       <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email</a>
-      <a onClick={handleClick} id='aboutMe' className='link'>about</a>
+      <option onClick={handleClick.bind(this, 1)} className='link'>about {props.pageIdList[1]}</option>
 
       <style jsx>{`
         .navLinksContainerContainer {
@@ -35,6 +35,8 @@ function NavLinksContainer(props) {
 
 NavLinksContainer.propTypes = {
   handleShowingSelectedContent: PropTypes.func,
+  pageIdList: PropTypes.array,
+  value: PropTypes.number
 };
 
 export default NavLinksContainer;

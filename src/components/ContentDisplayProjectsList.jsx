@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function ContentDisplayProjectsList() {
+function ContentDisplayProjectsList(props) {
   return(
-    <div className='contentDisplayProjectsListContainer'>
-      Projects List
+    <div value={props.value} className='contentDisplayProjectsListContainer'>
+      Projects List {props.value}
     </div>
   );
 }
+
+ContentDisplayProjectsList.propTypes = {
+  value: PropTypes.number
+};
 
 export default ContentDisplayProjectsList;
