@@ -24,12 +24,17 @@ function NavLinksContainer(props) {
           font-family: 'Montserrat', sans-serif;
           text-decoration:none;
           color:black;
+          -webkit-transition: color 0.4s ease-in;
         }
         option.link:hover {
           cursor:e-resize;
+          color:#0042ff;
+          -webkit-transition: color 0.4s ease-in;
         }
         a.link:hover {
           cursor:ne-resize;
+          color:#0042ff;
+          -webkit-transition: color 0.4s ease-in;
         }
       `}</style>
     </div>

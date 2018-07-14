@@ -8,11 +8,12 @@ function MastHeader() {
 
   return(
     <div className='mastHeaderContainer'>
-      <h1 onClick={returnHome}>
+      <h1>
         Johnny Ray Alt
       </h1>
       <style jsx>{`
         .mastHeaderContainer {
+          user-select:none;
           font-family: 'Raleway', sans-serif;
         }
       `}</style>

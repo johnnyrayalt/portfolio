@@ -5,7 +5,7 @@ import MainDisplayController from './MainDisplayController';
 function App() {
   return (
     <div>
-      <MastHeader />
+      <MastHeader  />
       <MainDisplayController />
     </div>
   );
