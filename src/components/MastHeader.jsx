@@ -1,9 +1,14 @@
 import React from 'react';
 
 function MastHeader() {
+
+  function returnHome() {
+
+  }
+
   return(
     <div className='mastHeaderContainer'>
-      <h1>
+      <h1 onClick={returnHome}>
         Johnny Ray Alt
       </h1>
       <style jsx>{`

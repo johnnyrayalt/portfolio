@@ -11,8 +11,8 @@ function NavLinksContainer(props) {
     <div className='navLinksContainerContainer'>
       <option onClick={handleClick.bind(this, 0)} className='link'>projects</option>
       <option onClick={handleClick.bind(this, 1)} className='link'>about</option>
-      <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github</a>
-      <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email</a>
+      <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github ☍</a>
+      <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email ☍</a>
 
       <style jsx>{`
         .navLinksContainerContainer {

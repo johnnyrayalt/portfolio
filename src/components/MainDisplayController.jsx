@@ -19,7 +19,6 @@ class MainDisplayController extends React.Component {
       isActive: true,
       pageId: pageIdRequested,
     });
-    console.log(this.state.pageId);
   }
 
   render() {

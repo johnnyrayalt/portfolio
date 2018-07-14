@@ -1,16 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function ContentDisplayProjectsList(props) {
   return(
-    <div value={props.value} className='contentDisplayProjectsListContainer'>
-      Projects List {props.value}
+    <div className='contentDisplayProjectsListContainer'>
+      Under Construction!
+      <style jsx>{`
+        .contentDisplayProjectsListContainer {
+          font-family: 'Raleway', sans-serif;
+          font-size:24px;
+          font-weight:bold;
+          margin: 1em 0;
+        }
+
+      `}</style>
     </div>
   );
 }
-
-ContentDisplayProjectsList.propTypes = {
-  value: PropTypes.number
-};
 
 export default ContentDisplayProjectsList;
