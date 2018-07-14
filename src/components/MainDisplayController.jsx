@@ -7,12 +7,8 @@ class MainDisplayController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHidden: true,
+      iaActive: false,
       pageId: NaN,
-      pageIdList: [
-        0: 'projectList',
-        1: 'aboutMe'
-      ]
     };
     this.handleShowingSelectedContent = this.handleShowingSelectedContent.bind(this);
   }
@@ -20,22 +16,22 @@ class MainDisplayController extends React.Component {
 
   handleShowingSelectedContent(pageIdRequested) {
     this.setState({
-      isHidden: !this.state.isHidden,
-      pageId: this.state.pageIdList[pageIdRequested],
+      isActive: true,
+      pageId: pageIdRequested,
     });
+    console.log(this.state.pageId);
   }
 
   render() {
     let currentlyVisibleContent = null;
-    if(!this.state.isHidden && this.state.pageId === 0) {
-      currentlyVisibleContent = <ContentDisplayProjectsList value={this.state.pageIdList[0]} />;
-    } else if(!this.state.isHidden && this.state.pageId === 1) {
+    if(this.state.isActive && this.state.pageId === 0) {
+      currentlyVisibleContent = <ContentDisplayProjectsList />;
+    } else if(this.state.isActive && this.state.pageId === 1) {
       currentlyVisibleContent = <ContentDisplayAbout />;
     }
     return(
       <div className='contentDisplayAreaContainer'>
         <NavLinksContainer
-          pageIdList={this.state.pageIdList}
           handleShowingSelectedContent={this.handleShowingSelectedContent}
           className='navLinksContainer' />
         {currentlyVisibleContent}

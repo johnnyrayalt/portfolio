@@ -9,8 +9,8 @@ function NavLinksContainer(props) {
 
   return(
     <div className='navLinksContainerContainer'>
-      <option onClick={handleClick.bind(this, 0)} className='link'>projects {props.pageIdList[0]}</option>
-      <option onClick={handleClick.bind(this, 1)} className='link'>about {props.pageIdList[1]}</option>
+      <option onClick={handleClick.bind(this, 0)} className='link'>projects</option>
+      <option onClick={handleClick.bind(this, 1)} className='link'>about</option>
       <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github</a>
       <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email</a>
 
@@ -25,8 +25,11 @@ function NavLinksContainer(props) {
           text-decoration:none;
           color:black;
         }
-        .link:hover {
+        option.link:hover {
           cursor:e-resize;
+        }
+        a.link:hover {
+          cursor:ne-resize;
         }
       `}</style>
     </div>
@@ -35,8 +38,6 @@ function NavLinksContainer(props) {
 
 NavLinksContainer.propTypes = {
   handleShowingSelectedContent: PropTypes.func,
-  pageIdList: PropTypes.array,
-  value: PropTypes.number
 };
 
 export default NavLinksContainer;
