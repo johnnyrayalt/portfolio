@@ -4,9 +4,8 @@ import ContentDisplayAbout from './ContentDisplayAbout';
 import ContentDisplayProjectsList from './ContentDisplayProjectsList';
 import ProjectListArt from './ProjectListArt';
 import ProjectListWeb from './ProjectListWeb';
-import ArtAlphaDecay from './ArtAlphaDecay';
-import ArtHqObjective from './ArtHqObjective';
-import ArtOptimizedLivingSpaces from './ArtOptimizedLivingSpaces';
+import ArtComponent from './ArtComponent';
+import { masterImageList } from './../constants/index';
 
 class MainDisplayController extends React.Component {
   constructor(props) {
@@ -28,7 +27,6 @@ class MainDisplayController extends React.Component {
 
   render() {
     let currentlyVisibleContent = null;
-
     if(this.state.isActive && this.state.pageId === 0) {
       currentlyVisibleContent = <ContentDisplayProjectsList
         handleShowingSelectedContent={this.handleShowingSelectedContent} />;
@@ -38,13 +36,14 @@ class MainDisplayController extends React.Component {
     } else if(this.state.isActive && this.state.pageId === 0.1) {
       currentlyVisibleContent = <ProjectListWeb />;
     } else if(this.state.isActive && this.state.pageId === 0.2) {
-      currentlyVisibleContent = <ProjectListArt />;
+      currentlyVisibleContent = <ProjectListArt
+        handleShowingSelectedContent={this.handleShowingSelectedContent} />;
     } else if(this.state.isActive && this.state.pageId === 0.201) {
-      currentlyVisibleContent = <ArtHqObjective />;
+      currentlyVisibleContent = <ArtComponent  alphaDecay={masterImageList.alphaDecay}/>;
     } else if(this.state.isActive && this.state.pageId === 0.202) {
-      currentlyVisibleContent = <ArtAlphaDecay />;
+      currentlyVisibleContent = <ArtComponent />;
     } else if(this.state.isActive && this.state.pageId === 0.203) {
-      currentlyVisibleContent = <ArtOptimizedLivingSpaces />;
+      currentlyVisibleContent = <ArtComponent />;
     }
 
     return(
