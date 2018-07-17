@@ -37,6 +37,6 @@ function ContentDisplayProjectsList(props) {
 
 ContentDisplayProjectsList.propTypes = {
   handleShowingSelectedContent: PropTypes.func
-}
+};
 
 export default ContentDisplayProjectsList;

@@ -2,9 +2,6 @@ import React from 'react';
 
 function MastHeader() {
 
-  function returnHome() {
-
-  }
 
   return(
     <div className='mastHeaderContainer'>

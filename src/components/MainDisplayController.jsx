@@ -4,6 +4,9 @@ import ContentDisplayAbout from './ContentDisplayAbout';
 import ContentDisplayProjectsList from './ContentDisplayProjectsList';
 import ProjectListArt from './ProjectListArt';
 import ProjectListWeb from './ProjectListWeb';
+import ArtAlphaDecay from './ArtAlphaDecay';
+import ArtHqObjective from './ArtHqObjective';
+import ArtOptimizedLivingSpaces from './ArtOptimizedLivingSpaces';
 
 class MainDisplayController extends React.Component {
   constructor(props) {
@@ -21,7 +24,6 @@ class MainDisplayController extends React.Component {
       isActive: true,
       pageId: pageIdRequested,
     });
-    console.log(pageIdRequested);
   }
 
   render() {
@@ -37,6 +39,12 @@ class MainDisplayController extends React.Component {
       currentlyVisibleContent = <ProjectListWeb />;
     } else if(this.state.isActive && this.state.pageId === 0.2) {
       currentlyVisibleContent = <ProjectListArt />;
+    } else if(this.state.isActive && this.state.pageId === 0.201) {
+      currentlyVisibleContent = <ArtHqObjective />;
+    } else if(this.state.isActive && this.state.pageId === 0.202) {
+      currentlyVisibleContent = <ArtAlphaDecay />;
+    } else if(this.state.isActive && this.state.pageId === 0.203) {
+      currentlyVisibleContent = <ArtOptimizedLivingSpaces />;
     }
 
     return(
