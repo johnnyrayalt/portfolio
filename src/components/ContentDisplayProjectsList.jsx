@@ -10,14 +10,13 @@ function ContentDisplayProjectsList(props) {
   return(
     <div className='contentDisplayProjectsListContainer'>
       <option onClick={handleClick.bind(this, 0.1)} className='link'>Web Development</option>
-      <option onClick={handleClick.bind(this, 0.2)} className='link'>Design</option>
-      <option onClick={handleClick.bind(this, 0.3)} className='link'>Fine Art</option>
+      <option onClick={handleClick.bind(this, 0.2)} className='link'>Art</option>
       <style jsx>{`
         .contentDisplayProjectsListContainer {
           font-family: 'Raleway', sans-serif;
           font-size:24px;
           font-weight:bold;
-          margin: 1em 0;
+          margin: 1em 20px;
         }
         .link {
           font-family: 'Montserrat', sans-serif;

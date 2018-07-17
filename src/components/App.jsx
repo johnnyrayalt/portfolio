@@ -5,8 +5,12 @@ import MainDisplayController from './MainDisplayController';
 function App() {
   return (
     <div>
-      <MastHeader  />
+      <MastHeader class='mastHeader' />
       <MainDisplayController />
+      <style jsx>{`
+          .mastHeader {
+            position:fixed;
+          }`}</style>
     </div>
   );
 }
