@@ -13,8 +13,10 @@ class MainDisplayController extends React.Component {
     this.state = {
       iaActive: false,
       pageId: NaN,
+      currentImages: []
     };
     this.handleShowingSelectedContent = this.handleShowingSelectedContent.bind(this);
+    this.handleSettingArtComponentState = this.handleSettingArtComponentState.bind(this);
   }
 
 
@@ -25,25 +27,58 @@ class MainDisplayController extends React.Component {
     });
   }
 
+  handleSettingArtComponentState(pageIdRequested) {
+    if(pageIdRequested === 0.201) {
+      this.setState({
+        currentImages: masterImageList.alphaDecay,
+      });
+    } else if(pageIdRequested === 0.202) {
+      this.setState({
+        currentImages: masterImageList.hqObjective,
+      });
+    } else if (pageIdRequested === 0.203) {
+      this.setState({
+        currentImages: masterImageList.optimizedLivingSpaces,
+      });
+    }
+  }
+
   render() {
     let currentlyVisibleContent = null;
     if(this.state.isActive && this.state.pageId === 0) {
-      currentlyVisibleContent = <ContentDisplayProjectsList
-        handleShowingSelectedContent={this.handleShowingSelectedContent} />;
+      currentlyVisibleContent =
+        <ContentDisplayProjectsList
+          handleShowingSelectedContent={this.handleShowingSelectedContent} />;
+
     } else if(this.state.isActive && this.state.pageId === 1) {
-      currentlyVisibleContent = <ContentDisplayAbout
-        handleShowingSelectedContent={this.handleShowingSelectedContent} />;
+      currentlyVisibleContent =
+        <ContentDisplayAbout
+          handleShowingSelectedContent={this.handleShowingSelectedContent} />;
+
     } else if(this.state.isActive && this.state.pageId === 0.1) {
-      currentlyVisibleContent = <ProjectListWeb />;
+      currentlyVisibleContent =
+        <ProjectListWeb />;
+
     } else if(this.state.isActive && this.state.pageId === 0.2) {
-      currentlyVisibleContent = <ProjectListArt
-        handleShowingSelectedContent={this.handleShowingSelectedContent} />;
+      currentlyVisibleContent =
+        <ProjectListArt
+          handleShowingSelectedContent={this.handleShowingSelectedContent}
+          handleSettingArtComponentState={this.handleSettingArtComponentState} />;
+
     } else if(this.state.isActive && this.state.pageId === 0.201) {
-      currentlyVisibleContent = <ArtComponent  alphaDecay={masterImageList.alphaDecay}/>;
+      currentlyVisibleContent =
+        <ArtComponent
+          currentImageContent={this.state.currentImages} />;
+
     } else if(this.state.isActive && this.state.pageId === 0.202) {
-      currentlyVisibleContent = <ArtComponent />;
+      currentlyVisibleContent =
+        <ArtComponent
+          currentImageContent={this.state.currentImages} />;
+
     } else if(this.state.isActive && this.state.pageId === 0.203) {
-      currentlyVisibleContent = <ArtComponent />;
+      currentlyVisibleContent =
+        <ArtComponent
+          currentImageContent={this.state.currentImages} />;
     }
 
     return(

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 function ProjectListArt(props) {
   function handleClick(pageIdRequested) {
     props.handleShowingSelectedContent(pageIdRequested);
+    props.handleSettingArtComponentState(pageIdRequested);
   }
 
   return(
@@ -41,6 +42,7 @@ function ProjectListArt(props) {
 
 ProjectListArt.propTypes = {
   handleShowingSelectedContent: PropTypes.func,
+  handleSettingArtComponentState: PropTypes.func
 };
 
 export default ProjectListArt;

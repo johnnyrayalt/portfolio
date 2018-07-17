@@ -2,19 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ArtComponent(props) {
-  console.log(props.alphaDecay);
   return(
-    <div className='artComponentContainer'>
-      {props.alphaDecay.map((pic, i) =>
-        <img
-          src={props.alphaDecay[i]}
-          key={i} />
+    <div className='artComponentContainer imageList'>
+      {props.currentImageContent.map( (image, i) =>
+        <img src={image}
+             key={i} />
       )}
+
       <style jsx>{`
         .artComponentContainer {
           font-family: 'Raleway', sans-serif;
           font-size:24px;
           font-weight:bold;
+        }
+        .imageList {
+          display:flex;
         }
       `}</style>
     </div>
@@ -22,7 +24,8 @@ function ArtComponent(props) {
 }
 
 ArtComponent.propTypes = {
-  alphaDecay: PropTypes.array
+  currentImageContent: PropTypes.array,
+  currentPageId: PropTypes.number
 };
 
 export default ArtComponent;
