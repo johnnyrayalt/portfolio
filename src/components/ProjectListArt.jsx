@@ -9,8 +9,8 @@ function ProjectListArt(props) {
 
   return(
     <div className='projectListArtContainer'>
-      <option onClick={handleClick.bind(this, 0.201)} className='link'>Alpha Decay</option>
-      <option onClick={handleClick.bind(this, 0.202)} className='link'>hq Objective</option>
+      <option onClick={handleClick.bind(this, 0.201)} className='link'>hq Objective</option>
+      <option onClick={handleClick.bind(this, 0.202)} className='link'>Alpha Decay</option>
       <option onClick={handleClick.bind(this, 0.203)} className='link'>Optimized Living Spaces #1</option>
 
       <style jsx>{`
