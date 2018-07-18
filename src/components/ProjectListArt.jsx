@@ -42,7 +42,7 @@ function ProjectListArt(props) {
 
 ProjectListArt.propTypes = {
   handleShowingSelectedContent: PropTypes.func,
-  handleSettingArtComponentState: PropTypes.func
+  handleSettingArtComponentState: PropTypes.func,
 };
 
 export default ProjectListArt;

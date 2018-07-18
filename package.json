@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.15.3",
+    "cloudinary-core": "^2.5.0",
+    "cloudinary-react": "^1.0.6",
     "file-loader": "^1.1.6",
     "moment": "^2.22.2",
     "prop-types": "^15.5.10",

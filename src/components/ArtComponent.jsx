@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 
 function ArtComponent(props) {
+  console.log(props.currentImageContent);
   console.log(props.currentPageInformation);
   return(
     <div className='artComponentContainer'>
+      {props.currentPageId}
       <div className='pageInformation'>
         {Object.keys(props.currentPageInformation).map( (info, i) =>
           <div key={i} className='title'>⚑ {props.currentPageInformation[info]}</div>
         )}
       </div>
       <div className='imageList'>
-        {props.currentImageContent.map( (image, i) =>
-          <img src={image}
-            key={i} />
-        )}
       </div>
 
       <style jsx>{`
@@ -33,10 +32,11 @@ function ArtComponent(props) {
   );
 }
 
+
 ArtComponent.propTypes = {
+  currentPageId: PropTypes.number,
   currentImageContent: PropTypes.array,
-  currentPageInformation: PropTypes.object,
-  currentPageId: PropTypes.number
+  currentPageInformation: PropTypes.object
 };
 
 export default ArtComponent;
