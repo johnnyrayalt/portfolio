@@ -37,7 +37,6 @@ class MainDisplayController extends React.Component {
     axios.get('http://res.cloudinary.com/wddmn666/image/list/books.json').then(res => {
       this.state.currentImages.booksImages.push(res.data.resources);
     });
-    console.log(this.state.currentImages);
   }
 
   handleShowingSelectedContent(pageIdRequested) {
