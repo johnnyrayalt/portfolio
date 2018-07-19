@@ -6,23 +6,27 @@ import { v4 } from 'uuid';
 
 function ArtComponent(props) {
   const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'wddmn666'});
-  console.log(props.currentImageContent[0][0].public_id);
+
   return(
     <div className='artComponentContainer'>
       {props.currentPageId}
       <div className='pageInformation'>
         {Object.keys(props.currentPageInformation).map( (info) =>
-          <div key={v4()} className='information'>⚑ {props.currentPageInformation[info]} : {info}</div>
+          <div key={v4()} className='information'>⚑ {props.currentPageInformation[info]}</div>
         )}
       </div>
       <div className='imageList'>
-        <CloudinaryContext cloudName='wddmn666'>
           <div>
-                {props.currentImageContent.map( (image, i) =>
-                  <p key={v4()}>{image[i].public_id}</p>
-                )}
+            <CloudinaryContext cloudName='wddmn666'>
+              {props.currentImageContent.map( (arrayImage, key) =>
+                <div key={key}>
+                  {arrayImage.map( (image, i) =>
+                    <Image key={i} width='500' publicId={image.public_id} />
+                  )}
+                </div>
+              )}
+            </CloudinaryContext>
           </div>
-        </CloudinaryContext>
       </div>
 
       <style jsx>{`
@@ -35,6 +39,9 @@ function ArtComponent(props) {
           max-width:500px;
           display:flex;
           flex-direction:column;
+        }
+        .images {
+          width:500px;
         }
       `}</style>
     </div>

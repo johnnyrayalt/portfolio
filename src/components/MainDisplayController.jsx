@@ -63,7 +63,6 @@ class MainDisplayController extends React.Component {
   }
 
   //// TODO:
-  // 1. add optimized living spaces to product information
   // 2. break pageIDs into constants index.js file,
   // 3. refactor option elements to be p elements + adjust styles
 
