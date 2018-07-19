@@ -6,7 +6,15 @@ import { v4 } from 'uuid';
 
 function ArtComponent(props) {
   const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'wddmn666'});
-
+  function switchImages(image, i) {
+    let result;
+    if(props.currentPageId === 0.201) {
+      result = <p key={i}>{image.public_id}</p>
+    } else {
+      result = <Image key={i} width='500' publicId={image.public_id} />
+    }
+    return result;
+  }
   return(
     <div className='artComponentContainer'>
       {props.currentPageId}
@@ -21,7 +29,7 @@ function ArtComponent(props) {
               {props.currentImageContent.map( (arrayImage, key) =>
                 <div key={key}>
                   {arrayImage.map( (image, i) =>
-                    <Image key={i} width='500' publicId={image.public_id} />
+                    switchImages(image, i)
                   )}
                 </div>
               )}
