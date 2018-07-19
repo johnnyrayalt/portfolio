@@ -11,8 +11,8 @@ function ArtComponent(props) {
     let url = 'http://res.cloudinary.com/wddmn666/image/upload/c_fit/v1/' + image.public_id;
     if(props.currentPageId === 0.201) {
       result =
-        <div className='hqObjectiveBookLinkDivWrapper'>
-          <a className='hqObjectiveBookLink' href={url} key={i}>{image.public_id}</a>
+        <div key={v4()} className='hqObjectiveBookLinkDivWrapper'>
+          <a target='_blank' className='hqObjectiveBookLink' href={url} key={i}>{image.public_id}</a>
         </div>
     } else {
       result =
@@ -34,7 +34,7 @@ function ArtComponent(props) {
               {props.currentImageContent.map( (arrayImage, key) =>
                 <div key={key}>
                   {arrayImage.map( (image, i) =>
-                    {switchImages(image, i)}
+                    switchImages(image, i)
                   )}
                 </div>
               )}
