@@ -54,7 +54,7 @@ class MainDisplayController extends React.Component {
     } else if(pageIdRequested === 0.202) {
       this.setState({
         currentPageInformation: projectInformationList.alphaDecay
-      })
+      });
     } else if (pageIdRequested === 0.203) {
       this.setState({
         currentPageInformation: projectInformationList.optimizedLivingSpaces

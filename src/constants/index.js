@@ -2,7 +2,7 @@ export const projectInformationList = {
   'alphaDecay': {
     'title':'Alpha Decay',
     'description':'Senior Thesis installation for Pacific Northwest College of Art',
-    'yearStart':'2014',
+    'yearStart':'2013',
   },
   'hqObjective': {
     'title':'hq Objective',
