@@ -8,10 +8,15 @@ function ArtComponent(props) {
   const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'wddmn666'});
   function switchImages(image, i) {
     let result;
+    let url = 'http://res.cloudinary.com/wddmn666/image/upload/c_fit/v1/' + image.public_id;
     if(props.currentPageId === 0.201) {
-      result = <p key={i}>{image.public_id}</p>
+      result =
+        <div className='hqObjectiveBookLinkDivWrapper'>
+          <a className='hqObjectiveBookLink' href={url} key={i}>{image.public_id}</a>
+        </div>
     } else {
-      result = <Image key={i} width='500' publicId={image.public_id} />
+      result =
+        <Image key={i} width='500' publicId={image.public_id} />
     }
     return result;
   }
@@ -29,7 +34,7 @@ function ArtComponent(props) {
               {props.currentImageContent.map( (arrayImage, key) =>
                 <div key={key}>
                   {arrayImage.map( (image, i) =>
-                    switchImages(image, i)
+                    {switchImages(image, i)}
                   )}
                 </div>
               )}
@@ -50,6 +55,9 @@ function ArtComponent(props) {
         }
         .images {
           width:500px;
+        }
+        .hqObjectiveBookLinkDivWrapper {
+          padding: 10px;
         }
       `}</style>
     </div>
