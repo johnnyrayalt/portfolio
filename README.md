@@ -9,12 +9,9 @@
 
 1. Install Node.js on local machine.
 
-2.
-```
-$ git clone https://github.com/johnnyrayalt/portfolio.git \
-$ cd portfolio \
-$ npm install
-```
+2. ` $ git clone https://github.com/johnnyrayalt/portfolio.git` <br>
+`$ cd portfolio` <br>
+`$ npm install`
 
 3. Run `$ npm run start` to build project and launch on localhost:8080
 
@@ -28,6 +25,7 @@ $ npm install
 - React
 - Babel
 - Webpack
+- Node.js
 
 ## Specifications
 
