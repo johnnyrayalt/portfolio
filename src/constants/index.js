@@ -17,3 +17,13 @@ export const projectInformationList = {
     'yearStart':'2013',
   }
 };
+
+export const pageIdList = {
+  'contentDisplayProjectsList': 0,
+  'projectListWeb': 0.1,
+  'projectListArt': 0.2,
+  'artComponentHqObjective': 0.201,
+  'artComponentAlphaDecay': 0.202,
+  'artComponentOptimizedLivingSpaces': 0.203,
+  'contentDisplayAbout': 1,
+}

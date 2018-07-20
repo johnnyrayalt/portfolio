@@ -7,7 +7,7 @@ import ProjectListWeb from './ProjectListWeb';
 import ArtComponent from './ArtComponent';
 import axios from 'axios';
 import cloudinary from 'cloudinary-core';
-import { projectInformationList } from './../constants/index';
+import { projectInformationList, pageIdList } from './../constants/index';
 
 class MainDisplayController extends React.Component {
   constructor(props) {
@@ -20,7 +20,8 @@ class MainDisplayController extends React.Component {
         optimizedLivingSpacesImages: [],
         booksImages: []
       },
-      currentPageInformation: projectInformationList
+      currentPageInformation: projectInformationList,
+      pageIdList: pageIdList
     };
     this.handleShowingSelectedContent = this.handleShowingSelectedContent.bind(this);
     this.handleSettingArtComponentState = this.handleSettingArtComponentState.bind(this);
@@ -64,42 +65,36 @@ class MainDisplayController extends React.Component {
     }
   }
 
-  //// TODO:
-  // 2. break pageIDs into constants index.js file,
-  // 3. refactor option elements to be p elements + adjust styles
-
-
-
   render() {
     let currentlyVisibleContent = null;
 //ContentDisplayProjectsList
-    if(this.state.isActive && this.state.pageId === 0) {
+    if(this.state.isActive && this.state.pageId === this.state.pageIdList.contentDisplayProjectsList) {
       currentlyVisibleContent =
         <ContentDisplayProjectsList
           handleShowingSelectedContent={this.handleShowingSelectedContent} />;
 
 //ContentDisplayAbout
-    } else if(this.state.isActive && this.state.pageId === 1) {
+    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.contentDisplayAbout) {
       currentlyVisibleContent =
         <ContentDisplayAbout
           handleShowingSelectedContent={this.handleShowingSelectedContent} />;
 
 //ProjectListWeb
-    } else if(this.state.isActive && this.state.pageId === 0.1) {
+    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.projectListWeb) {
       currentlyVisibleContent =
         <ProjectListWeb
           handleShowingSelectedContent={this.handleShowingSelectedContent}
           handleSettingArtComponentState={this.handleSettingArtComponentState}/>;
 
 //ProjectListArt
-    } else if(this.state.isActive && this.state.pageId === 0.2) {
+    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.projectListArt) {
       currentlyVisibleContent =
         <ProjectListArt
           handleShowingSelectedContent={this.handleShowingSelectedContent}
           handleSettingArtComponentState={this.handleSettingArtComponentState}/>;
 
 // ART COMPONENT hqObjective
-    } else if(this.state.isActive && this.state.pageId === 0.201) {
+    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentHqObjective) {
       currentlyVisibleContent =
         <ArtComponent
           currentPageId={this.state.pageId}
@@ -107,20 +102,22 @@ class MainDisplayController extends React.Component {
           currentPageInformation={this.state.currentPageInformation} />;
 
 // ART COMPONENT alphaDecay
-    } else if(this.state.isActive && this.state.pageId === 0.202) {
+    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentAlphaDecay) {
       currentlyVisibleContent =
         <ArtComponent
           currentPageId={this.state.pageId}
           currentImageContent={this.state.currentImages.alphaDecayImages}
           currentPageInformation={this.state.currentPageInformation} />;
+        
 // ART COMPONENT optimizedLivingSpacesImages
-    } else if(this.state.isActive && this.state.pageId === 0.203) {
+    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentOptimizedLivingSpaces) {
       currentlyVisibleContent =
         <ArtComponent
           currentPageId={this.state.pageId}
           currentImageContent={this.state.currentImages.optimizedLivingSpacesImages}
           currentPageInformation={this.state.currentPageInformation} />;
     }
+
     return(
       <div className='contentDisplayAreaContainer'>
         <NavLinksContainer
