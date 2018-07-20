@@ -16,6 +16,7 @@
     ],
     "rules": {
         "no-console": 0,
+        "no-unused-vars": 0,
         "react/jsx-key": 2,
         "react/jsx-uses-vars": 2,
         "react/jsx-uses-react": 2,
