@@ -8,12 +8,16 @@ import Radium, { Style } from 'radium';
 function ArtComponent(props) {
   const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'wddmn666'});
 
-  let linkStyle = {
+  const linkStyle = {
     base: {
       color:'black',
       textDecoration:'none',
       padding:'20px 0',
     }
+  }
+
+  const informationStyle = {
+    paddingBottom:'10px',
   }
 
   function addVimeo() {
@@ -44,10 +48,9 @@ function ArtComponent(props) {
 
   return(
     <div className='artComponentContainer'>
-      {props.currentPageId}
       <div className='pageInformation'>
         {Object.keys(props.currentPageInformation).map( (info) =>
-          <div key={v4()} className='information'>⚑ {props.currentPageInformation[info]}</div>
+          <div key={v4()} style={informationStyle} className='information'>⚑ {props.currentPageInformation[info]}</div>
         )}
       </div>
       <div className='imageList'>
@@ -70,6 +73,15 @@ function ArtComponent(props) {
           font-family: 'Raleway', sans-serif;
           font-size:24px;
           font-weight:bold;
+          margin: 1em 20px;
+        }
+        .information {
+          padding-top:10x;
+          user-select:all;
+          cursor:cell;
+        }
+        .information::selection {
+          background: rgba(0,66,255,0.2);
         }
         .imageList {
           max-width:500px;

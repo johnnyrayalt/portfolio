@@ -18,20 +18,22 @@ function ProjectListArt(props) {
           font-family: 'Raleway', sans-serif;
           font-size:24px;
           font-weight:bold;
+          margin: 1em 20px;
         }
         .link {
           font-family: 'Montserrat', sans-serif;
           text-decoration:none;
+          font-weight:bold;
           color:black;
           -webkit-transition: color 0.4s ease-in;
+          padding-bottom:10px;
+          cursor:e-resize;
         }
         option.link:hover {
-          cursor:e-resize;
           color:#0042ff;
           -webkit-transition: color 0.4s ease-in;
         }
         a.link:hover {
-          cursor:ne-resize;
           color:#0042ff;
           -webkit-transition: color 0.4s ease-in;
         }

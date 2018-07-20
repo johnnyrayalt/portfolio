@@ -26,14 +26,13 @@ function NavLinksContainer(props) {
           text-decoration:none;
           color:black;
           -webkit-transition: color 0.4s ease-in;
+          cursor:e-resize;
         }
         option.link:hover {
-          cursor:e-resize;
           color:#0042ff;
           -webkit-transition: color 0.4s ease-in;
         }
         a.link:hover {
-          cursor:ne-resize;
           color:#0042ff;
           -webkit-transition: color 0.4s ease-in;
         }

@@ -29,9 +29,9 @@ function ContentDisplayAbout() {
           color:black;
           padding: 6px 0;
           -webkit-transition: color 0.4s ease-in;
+          cursor:ne-resize;
         }
         .socialLink:hover {
-          cursor:ne-resize;
           color:#0042ff;
           -webkit-transition: color 0.4s ease-in;
         }

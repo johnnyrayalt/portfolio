@@ -24,9 +24,10 @@ function ContentDisplayProjectsList(props) {
           font-weight:bold;
           color:black;
           -webkit-transition: color 0.4s ease-in;
+          padding-bottom:10px;
+          cursor:e-resize;
         }
         option.link:hover {
-          cursor:e-resize;
           color:#0042ff;
           -webkit-transition: color 0.4s ease-in;
         }
