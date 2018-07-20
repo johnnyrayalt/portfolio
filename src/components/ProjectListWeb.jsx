@@ -8,7 +8,7 @@ function ProjectListWeb(props) {
   }
   return(
     <div className='projectListWebContainer'>
-      <a onClick={handleClick.bind(this, 0.101)} className='link'>Three.JS and React: DOM manipulation in three dimensions</a>
+      <a onClick={handleClick.bind(this, props.pageIdList.threeJsDemo)} className='link'>Three.JS and React: DOM manipulation in three dimensions</a>
 
       <style jsx>{`
         .projectListWebContainer {
@@ -40,6 +40,7 @@ function ProjectListWeb(props) {
 ProjectListWeb.propTypes = {
   handleShowingSelectedContent: PropTypes.func,
   handleSettingArtComponentState: PropTypes.func,
+  pageIdList: PropTypes.object,
 };
 
 export default ProjectListWeb;

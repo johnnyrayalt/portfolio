@@ -9,9 +9,9 @@ function ProjectListArt(props) {
 
   return(
     <div className='projectListArtContainer'>
-      <a onClick={handleClick.bind(this, 0.201)} className='link'>hq Objective</a>
-      <a onClick={handleClick.bind(this, 0.202)} className='link'>Alpha Decay</a>
-      <a onClick={handleClick.bind(this, 0.203)} className='link'>Optimized Living Spaces #1</a>
+      <a onClick={handleClick.bind(this, props.pageIdList.artComponentHqObjective)} className='link'>hq Objective</a>
+      <a onClick={handleClick.bind(this, props.pageIdList.artComponentAlphaDecay)} className='link'>Alpha Decay</a>
+      <a onClick={handleClick.bind(this, props.pageIdList.artComponentOptimizedLivingSpaces)} className='link'>Optimized Living Spaces #1</a>
 
       <style jsx>{`
         .projectListArtContainer {
@@ -43,6 +43,7 @@ function ProjectListArt(props) {
 ProjectListArt.propTypes = {
   handleShowingSelectedContent: PropTypes.func,
   handleSettingArtComponentState: PropTypes.func,
+  pageIdList: PropTypes.object
 };
 
 export default ProjectListArt;

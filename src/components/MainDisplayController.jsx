@@ -5,8 +5,9 @@ import ContentDisplayProjectsList from './ContentDisplayProjectsList';
 import ProjectListArt from './ProjectListArt';
 import ProjectListWeb from './ProjectListWeb';
 import ArtComponent from './ArtComponent';
-import axios from 'axios';
-import cloudinary from 'cloudinary-core';
+import ThreeJsDemo from './ThreeJsDemo';
+// import axios from 'axios';
+// import cloudinary from 'cloudinary-core';
 import { projectInformationList, pageIdList } from './../constants/index';
 
 class MainDisplayController extends React.Component {
@@ -84,19 +85,27 @@ class MainDisplayController extends React.Component {
       currentlyVisibleContent =
         <ProjectListWeb
           handleShowingSelectedContent={this.handleShowingSelectedContent}
-          handleSettingArtComponentState={this.handleSettingArtComponentState}/>;
+          handleSettingArtComponentState={this.handleSettingArtComponentState}
+          pageIdList={this.state.pageIdList} />;
+
+// THREE JS DEMO COMPONENT
+    } else if(this.state.isActice && this.state.pageId === this.state.pageIdList.threeJsDemo) {
+      currentlyVisibleContent =
+        <ThreeJsDemo />;
 
 //ProjectListArt
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.projectListArt) {
       currentlyVisibleContent =
         <ProjectListArt
           handleShowingSelectedContent={this.handleShowingSelectedContent}
-          handleSettingArtComponentState={this.handleSettingArtComponentState}/>;
+          handleSettingArtComponentState={this.handleSettingArtComponentState}
+          pageIdList={this.state.pageIdList}/>;
 
 // ART COMPONENT hqObjective
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentHqObjective) {
       currentlyVisibleContent =
         <ArtComponent
+          pageIdList={this.state.pageIdList}
           currentPageId={this.state.pageId}
           currentImageContent={this.state.currentImages.booksImages}
           currentPageInformation={this.state.currentPageInformation} />;
@@ -105,6 +114,7 @@ class MainDisplayController extends React.Component {
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentAlphaDecay) {
       currentlyVisibleContent =
         <ArtComponent
+          pageIdList={this.state.pageIdList}
           currentPageId={this.state.pageId}
           currentImageContent={this.state.currentImages.alphaDecayImages}
           currentPageInformation={this.state.currentPageInformation} />;
@@ -113,6 +123,7 @@ class MainDisplayController extends React.Component {
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentOptimizedLivingSpaces) {
       currentlyVisibleContent =
         <ArtComponent
+          pageIdList={this.state.pageIdList}
           currentPageId={this.state.pageId}
           currentImageContent={this.state.currentImages.optimizedLivingSpacesImages}
           currentPageInformation={this.state.currentPageInformation} />;

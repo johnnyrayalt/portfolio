@@ -20,15 +20,15 @@ function ArtComponent(props) {
       textDecoration:'none',
       cursor:'zoom-in',
     }
-  }
+  };
 
   const informationStyle = {
     paddingBottom:'10px',
-  }
+  };
 
   function addVimeo() {
     let result;
-    if(props.currentPageId === 0.202) {
+    if(props.currentPageId === props.pageIdList.artComponentAlphaDecay) {
       result =
         <iframe src="https://player.vimeo.com/video/82696381" width="500" height="280" frameBorder='0'></iframe>;
     }
@@ -38,7 +38,7 @@ function ArtComponent(props) {
   function switchImages(image, i) {
     let result;
     let url = 'http://res.cloudinary.com/wddmn666/image/upload/c_fit/v1/' + image.public_id;
-    if(props.currentPageId === 0.201) {
+    if(props.currentPageId === props.pageIdList.artComponentHqObjective) {
       let imagePublicId = image.public_id;
       let textTransform = imagePublicId.replace('books/', '').replace('-Web', '').split(/(?=[A-Z])/).join(' ');
       result =
@@ -49,7 +49,7 @@ function ArtComponent(props) {
       result =
         <a target='_blank' style={linkStyle.image} href={url} key={v4()}>
           <Image key={i} width='500' publicId={image.public_id} />
-        </a>
+        </a>;
     }
     return result;
   }
@@ -110,6 +110,7 @@ function ArtComponent(props) {
 
 ArtComponent.propTypes = {
   currentPageId: PropTypes.number,
+  pageIdList: PropTypes.object,
   currentImageContent: PropTypes.array,
   currentPageInformation: PropTypes.object
 };
