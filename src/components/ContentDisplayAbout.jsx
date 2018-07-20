@@ -3,9 +3,9 @@ import React from 'react';
 function ContentDisplayAbout() {
   return(
     <div className='contentDisplayAboutContainer'>
-      <p className='text'>⚑ b. 1991 Los Angeles, California</p>
-      <p className='text'>⚑ Currently lives and works in Portland, Oregon</p>
-      <p className='text'>⚑ Web Developer</p>
+      <div className='text'>⚑ b. 1991 Los Angeles, California</div>
+      <div className='text'>⚑ Currently lives and works in Portland, Oregon</div>
+      <div className='text'>⚑ Web Developer</div>
       <div className='socialLinksContainer'>
         <a href='https://www.instagram.com/msninstantmessenger/' target='_blank' className='socialLink'>INSTAGRAM ☍</a>
         <a href='https://twitter.com/001alt' target='_blank' className='socialLink'>TWITTER ☍</a>
@@ -16,6 +16,15 @@ function ContentDisplayAbout() {
           font-family: 'Raleway', sans-serif;
           font-size:24px;
           font-weight:bold;
+          margin: 1em 20px;
+        }
+        .text {
+          padding-bottom:10px;
+          user-select:all;
+          cursor:cell;
+        }
+        .text::selection {
+          background: rgba(0,66,255,0.2);
         }
         .socialLinksContainer {
           display:flex;
@@ -27,7 +36,7 @@ function ContentDisplayAbout() {
         .socialLink {
           text-decoration:none;
           color:black;
-          padding: 6px 0;
+          padding-bottom:10px;
           -webkit-transition: color 0.4s ease-in;
           cursor:ne-resize;
         }

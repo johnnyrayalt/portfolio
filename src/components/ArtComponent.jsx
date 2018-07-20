@@ -13,6 +13,12 @@ function ArtComponent(props) {
       color:'black',
       textDecoration:'none',
       padding:'20px 0',
+      cursor:'ne-resize',
+    },
+
+    image: {
+      textDecoration:'none',
+      cursor:'zoom-in',
     }
   }
 
@@ -41,7 +47,9 @@ function ArtComponent(props) {
         </div>;
     } else {
       result =
-        <Image key={i} width='500' publicId={image.public_id} />;
+        <a target='_blank' style={linkStyle.image} href={url} key={v4()}>
+          <Image key={i} width='500' publicId={image.public_id} />
+        </a>
     }
     return result;
   }
@@ -76,7 +84,7 @@ function ArtComponent(props) {
           margin: 1em 20px;
         }
         .information {
-          padding-top:10x;
+          padding-bottom:10x;
           user-select:all;
           cursor:cell;
         }

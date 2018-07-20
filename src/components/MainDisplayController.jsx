@@ -85,7 +85,9 @@ class MainDisplayController extends React.Component {
 //ProjectListWeb
     } else if(this.state.isActive && this.state.pageId === 0.1) {
       currentlyVisibleContent =
-        <ProjectListWeb />;
+        <ProjectListWeb
+          handleShowingSelectedContent={this.handleShowingSelectedContent}
+          handleSettingArtComponentState={this.handleSettingArtComponentState}/>;
 
 //ProjectListArt
     } else if(this.state.isActive && this.state.pageId === 0.2) {
