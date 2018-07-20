@@ -9,9 +9,9 @@ function ProjectListArt(props) {
 
   return(
     <div className='projectListArtContainer'>
-      <option onClick={handleClick.bind(this, 0.201)} className='link'>hq Objective</option>
-      <option onClick={handleClick.bind(this, 0.202)} className='link'>Alpha Decay</option>
-      <option onClick={handleClick.bind(this, 0.203)} className='link'>Optimized Living Spaces #1</option>
+      <a onClick={handleClick.bind(this, 0.201)} className='link'>hq Objective</a>
+      <a onClick={handleClick.bind(this, 0.202)} className='link'>Alpha Decay</a>
+      <a onClick={handleClick.bind(this, 0.203)} className='link'>Optimized Living Spaces #1</a>
 
       <style jsx>{`
         .projectListArtContainer {
@@ -29,10 +29,7 @@ function ProjectListArt(props) {
           padding-bottom:10px;
           cursor:e-resize;
           user-select:none;
-        }
-        option.link:hover {
-          color:#0042ff;
-          -webkit-transition: color 0.4s ease-in;
+          display:block;
         }
         a.link:hover {
           color:#0042ff;

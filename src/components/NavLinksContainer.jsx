@@ -9,8 +9,8 @@ function NavLinksContainer(props) {
 
   return(
     <div className='navLinksContainerContainer'>
-      <option onClick={handleClick.bind(this, 0)} className='link'>projects</option>
-      <option onClick={handleClick.bind(this, 1)} className='link'>about</option>
+      <a onClick={handleClick.bind(this, 0)} className='link'>projects</a>
+      <a onClick={handleClick.bind(this, 1)} className='link'>about</a>
       <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github ☍</a>
       <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email ☍</a>
 
@@ -28,10 +28,6 @@ function NavLinksContainer(props) {
           -webkit-transition: color 0.4s ease-in;
           cursor:e-resize;
           user-select:none;
-        }
-        option.link:hover {
-          color:#0042ff;
-          -webkit-transition: color 0.4s ease-in;
         }
         a.link:hover {
           color:#0042ff;

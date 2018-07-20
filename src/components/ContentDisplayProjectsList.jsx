@@ -9,8 +9,8 @@ function ContentDisplayProjectsList(props) {
 
   return(
     <div className='contentDisplayProjectsListContainer'>
-      <option onClick={handleClick.bind(this, 0.1)} className='link'>Web Development</option>
-      <option onClick={handleClick.bind(this, 0.2)} className='link'>Art</option>
+      <a onClick={handleClick.bind(this, 0.1)} className='link'>Web Development</a>
+      <a onClick={handleClick.bind(this, 0.2)} className='link'>Art</a>
       <style jsx>{`
         .contentDisplayProjectsListContainer {
           font-family: 'Raleway', sans-serif;
@@ -27,10 +27,7 @@ function ContentDisplayProjectsList(props) {
           padding-bottom:10px;
           cursor:e-resize;
           user-select:none;
-        }
-        option.link:hover {
-          color:#0042ff;
-          -webkit-transition: color 0.4s ease-in;
+          display:block;
         }
       `}</style>
     </div>

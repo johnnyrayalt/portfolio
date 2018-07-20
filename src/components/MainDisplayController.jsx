@@ -50,15 +50,15 @@ class MainDisplayController extends React.Component {
   }
 
   handleSettingArtComponentState(pageIdRequested) {
-    if(pageIdRequested === 0.201) {
+    if(pageIdRequested === this.state.pageIdList.artComponentHqObjective) {
       this.setState({
         currentPageInformation: projectInformationList.hqObjective
       });
-    } else if(pageIdRequested === 0.202) {
+    } else if(pageIdRequested === this.state.pageIdList.artComponentAlphaDecay) {
       this.setState({
         currentPageInformation: projectInformationList.alphaDecay
       });
-    } else if (pageIdRequested === 0.203) {
+    } else if (pageIdRequested === this.state.pageIdList.artComponentOptimizedLivingSpaces) {
       this.setState({
         currentPageInformation: projectInformationList.optimizedLivingSpaces
       });
@@ -108,7 +108,7 @@ class MainDisplayController extends React.Component {
           currentPageId={this.state.pageId}
           currentImageContent={this.state.currentImages.alphaDecayImages}
           currentPageInformation={this.state.currentPageInformation} />;
-        
+
 // ART COMPONENT optimizedLivingSpacesImages
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentOptimizedLivingSpaces) {
       currentlyVisibleContent =
@@ -123,6 +123,7 @@ class MainDisplayController extends React.Component {
         <NavLinksContainer
           handleShowingSelectedContent={this.handleShowingSelectedContent}
           className='navLinksContainer' />
+
         {currentlyVisibleContent}
 
         <style jsx>{`

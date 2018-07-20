@@ -8,7 +8,7 @@ function ProjectListWeb(props) {
   }
   return(
     <div className='projectListWebContainer'>
-      <option onClick={handleClick.bind(this, 0.101)} className='link'>Three.JS and React: DOM manipulation in three dimensions</option>
+      <a onClick={handleClick.bind(this, 0.101)} className='link'>Three.JS and React: DOM manipulation in three dimensions</a>
 
       <style jsx>{`
         .projectListWebContainer {
@@ -26,10 +26,7 @@ function ProjectListWeb(props) {
           padding-bottom:10px;
           cursor:e-resize;
           user-select:none;
-        }
-        option.link:hover {
-          color:#0042ff;
-          -webkit-transition: color 0.4s ease-in;
+          display:block;
         }
         a.link:hover {
           color:#0042ff;
