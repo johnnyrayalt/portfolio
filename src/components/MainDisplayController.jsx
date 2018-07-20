@@ -127,6 +127,7 @@ class MainDisplayController extends React.Component {
           handleShowingSelectedContent={this.handleShowingSelectedContent}
           className='navLinksContainer' />
         {currentlyVisibleContent}
+
         <style jsx>{`
           .contentDisplayAreaContainer {
             display:flex;
