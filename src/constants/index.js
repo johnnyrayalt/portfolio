@@ -7,8 +7,9 @@ export const projectInformationList = {
   'hqObjective': {
     'title':'hq Objective',
     'description':'hq Objective was an 501(c)(3) Non-Profit which operated two galleries and a printing press. During the projects lifecycle, we mounted over 20 exhibitions and published 5 artist books. hq\'s programming often explored the relationship between artist and institution, using the space created to create collaborative exhibitons with emerging artists.',
-    'yearStart':'2013',
-    'yearEnd':'2018',
+    'yearEnd':'Ended 2018',
+    'yearStart':'Started 2013',
+    'disclaimer':'The works listed below are a sample of a few artist books I designed during hq Objective\'s project span.'
   },
   'optimizedLivingSpaces': {
     'title':'Optimized Living Spaces #1',

@@ -3,17 +3,24 @@ import PropTypes from 'prop-types';
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import cloudinary from 'cloudinary-core';
 import { v4 } from 'uuid';
+import Radium, { Style } from 'radium';
 
 function ArtComponent(props) {
   const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'wddmn666'});
+
+  let linkStyle = {
+    base: {
+      color:'black',
+      textDecoration:'none',
+      padding:'20px 0',
+    }
+  }
 
   function addVimeo() {
     let result;
     if(props.currentPageId === 0.202) {
       result =
         <iframe src="https://player.vimeo.com/video/82696381" width="500" height="280" frameBorder='0'></iframe>;
-    } else {
-      result = null;
     }
     return result;
   }
@@ -22,9 +29,11 @@ function ArtComponent(props) {
     let result;
     let url = 'http://res.cloudinary.com/wddmn666/image/upload/c_fit/v1/' + image.public_id;
     if(props.currentPageId === 0.201) {
+      let imagePublicId = image.public_id;
+      let textTransform = imagePublicId.replace('books/', '').replace('-Web', '').split(/(?=[A-Z])/).join(' ');
       result =
         <div key={v4()} className='hqObjectiveBookLinkDivWrapper'>
-          <a target='_blank' className='hqObjectiveBookLink' href={url} key={i}>{image.public_id}</a>
+          <a target='_blank' style={linkStyle.base} href={url} key={i}>{textTransform}</a>
         </div>;
     } else {
       result =
