@@ -6,17 +6,15 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 function App() {
   return (
     <div>
-      <MastHeader class='mastHeader' />
+      <div className='mastHeaderContainer'>
+        <MastHeader />
+      </div>
         <Switch>
           <Route exact path='/' component={MainDisplayController} />
           <Route path='*' render={() =>
             <Redirect to='/' />
           } />
         </Switch>
-      <style jsx>{`
-          .mastHeader {
-            position:fixed;
-          }`}</style>
     </div>
   );
 }
