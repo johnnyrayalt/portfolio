@@ -4,9 +4,10 @@ import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import cloudinary from 'cloudinary-core';
 import { v4 } from 'uuid';
 import Radium, { Style } from 'radium';
+import { CLOUD_NAME } from './../constants/env/cloudname';
 
 function ArtComponent(props) {
-  const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'wddmn666'});
+  const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: CLOUD_NAME});
 
   const linkStyle = {
     base: {
@@ -64,7 +65,7 @@ function ArtComponent(props) {
       <div className='imageList'>
           <div>
             {addVimeo()}
-            <CloudinaryContext cloudName='wddmn666'>
+            <CloudinaryContext cloudName={CLOUD_NAME}>
               {props.currentImageContent.map( (arrayImage, key) =>
                 <div key={key}>
                   {arrayImage.map( (image, i) =>

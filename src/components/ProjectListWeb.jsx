@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 function ProjectListWeb(props) {
   function handleClick(pageIdRequested) {
     props.handleShowingSelectedContent(pageIdRequested);
-    props.handleSettingArtComponentState(pageIdRequested);
   }
   return(
     <div className='projectListWebContainer'>
@@ -39,7 +38,6 @@ function ProjectListWeb(props) {
 
 ProjectListWeb.propTypes = {
   handleShowingSelectedContent: PropTypes.func,
-  handleSettingArtComponentState: PropTypes.func,
   pageIdList: PropTypes.object,
 };
 

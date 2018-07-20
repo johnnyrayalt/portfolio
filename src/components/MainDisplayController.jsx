@@ -6,8 +6,8 @@ import ProjectListArt from './ProjectListArt';
 import ProjectListWeb from './ProjectListWeb';
 import ArtComponent from './ArtComponent';
 import ThreeJsDemo from './ThreeJsDemo';
-// import axios from 'axios';
-// import cloudinary from 'cloudinary-core';
+import axios from 'axios';
+import cloudinary from 'cloudinary-core';
 import { projectInformationList, pageIdList } from './../constants/index';
 
 class MainDisplayController extends React.Component {
@@ -16,13 +16,13 @@ class MainDisplayController extends React.Component {
     this.state = {
       iaActive: false,
       pageId: NaN,
+      pageIdList: pageIdList,
       currentImages: {
         alphaDecayImages: [],
         optimizedLivingSpacesImages: [],
         booksImages: []
       },
       currentPageInformation: projectInformationList,
-      pageIdList: pageIdList
     };
     this.handleShowingSelectedContent = this.handleShowingSelectedContent.bind(this);
     this.handleSettingArtComponentState = this.handleSettingArtComponentState.bind(this);
@@ -30,18 +30,18 @@ class MainDisplayController extends React.Component {
 
 
   // API IMAGE CALL
-  // componentDidMount(){
-  //   let currentImages;
-  //   axios.get('http://res.cloudinary.com/wddmn666/image/list/alphaDecay.json').then(res => {
-  //     this.state.currentImages.alphaDecayImages.push(res.data.resources);
-  //   });
-  //   axios.get('http://res.cloudinary.com/wddmn666/image/list/optimizedLivingSpaces.json').then(res => {
-  //     this.state.currentImages.optimizedLivingSpacesImages.push(res.data.resources);
-  //   });
-  //   axios.get('http://res.cloudinary.com/wddmn666/image/list/books.json').then(res => {
-  //     this.state.currentImages.booksImages.push(res.data.resources);
-  //   });
-  // }
+  componentDidMount(){
+    let currentImages;
+    axios.get('http://res.cloudinary.com/wddmn666/image/list/alphaDecay.json').then(res => {
+      this.state.currentImages.alphaDecayImages.push(res.data.resources);
+    });
+    axios.get('http://res.cloudinary.com/wddmn666/image/list/optimizedLivingSpaces.json').then(res => {
+      this.state.currentImages.optimizedLivingSpacesImages.push(res.data.resources);
+    });
+    axios.get('http://res.cloudinary.com/wddmn666/image/list/books.json').then(res => {
+      this.state.currentImages.booksImages.push(res.data.resources);
+    });
+  }
 
   handleShowingSelectedContent(pageIdRequested) {
     this.setState({
@@ -68,6 +68,7 @@ class MainDisplayController extends React.Component {
 
   render() {
     let currentlyVisibleContent = null;
+
 //ContentDisplayProjectsList
     if(this.state.isActive && this.state.pageId === this.state.pageIdList.contentDisplayProjectsList) {
       currentlyVisibleContent =
