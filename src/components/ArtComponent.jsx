@@ -6,6 +6,18 @@ import { v4 } from 'uuid';
 
 function ArtComponent(props) {
   const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'wddmn666'});
+
+  function addVimeo() {
+    let result;
+    if(props.currentPageId === 0.202) {
+      result =
+        <iframe src="https://player.vimeo.com/video/82696381" width="500" height="280" frameBorder='0'></iframe>;
+    } else {
+      result = null;
+    }
+    return result;
+  }
+
   function switchImages(image, i) {
     let result;
     let url = 'http://res.cloudinary.com/wddmn666/image/upload/c_fit/v1/' + image.public_id;
@@ -13,13 +25,14 @@ function ArtComponent(props) {
       result =
         <div key={v4()} className='hqObjectiveBookLinkDivWrapper'>
           <a target='_blank' className='hqObjectiveBookLink' href={url} key={i}>{image.public_id}</a>
-        </div>
+        </div>;
     } else {
       result =
-        <Image key={i} width='500' publicId={image.public_id} />
+        <Image key={i} width='500' publicId={image.public_id} />;
     }
     return result;
   }
+
   return(
     <div className='artComponentContainer'>
       {props.currentPageId}
@@ -30,6 +43,7 @@ function ArtComponent(props) {
       </div>
       <div className='imageList'>
           <div>
+            {addVimeo()}
             <CloudinaryContext cloudName='wddmn666'>
               {props.currentImageContent.map( (arrayImage, key) =>
                 <div key={key}>
