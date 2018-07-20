@@ -27,6 +27,7 @@ function NavLinksContainer(props) {
           color:black;
           -webkit-transition: color 0.4s ease-in;
           cursor:e-resize;
+          user-select:none;
         }
         option.link:hover {
           color:#0042ff;

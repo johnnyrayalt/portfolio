@@ -26,6 +26,7 @@ function ContentDisplayProjectsList(props) {
           -webkit-transition: color 0.4s ease-in;
           padding-bottom:10px;
           cursor:e-resize;
+          user-select:none;
         }
         option.link:hover {
           color:#0042ff;

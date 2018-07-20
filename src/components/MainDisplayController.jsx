@@ -26,18 +26,20 @@ class MainDisplayController extends React.Component {
     this.handleSettingArtComponentState = this.handleSettingArtComponentState.bind(this);
   }
 
-  componentDidMount(){
-    let currentImages;
-    axios.get('http://res.cloudinary.com/wddmn666/image/list/alphaDecay.json').then(res => {
-      this.state.currentImages.alphaDecayImages.push(res.data.resources);
-    });
-    axios.get('http://res.cloudinary.com/wddmn666/image/list/optimizedLivingSpaces.json').then(res => {
-      this.state.currentImages.optimizedLivingSpacesImages.push(res.data.resources);
-    });
-    axios.get('http://res.cloudinary.com/wddmn666/image/list/books.json').then(res => {
-      this.state.currentImages.booksImages.push(res.data.resources);
-    });
-  }
+
+  // API IMAGE CALL
+  // componentDidMount(){
+  //   let currentImages;
+  //   axios.get('http://res.cloudinary.com/wddmn666/image/list/alphaDecay.json').then(res => {
+  //     this.state.currentImages.alphaDecayImages.push(res.data.resources);
+  //   });
+  //   axios.get('http://res.cloudinary.com/wddmn666/image/list/optimizedLivingSpaces.json').then(res => {
+  //     this.state.currentImages.optimizedLivingSpacesImages.push(res.data.resources);
+  //   });
+  //   axios.get('http://res.cloudinary.com/wddmn666/image/list/books.json').then(res => {
+  //     this.state.currentImages.booksImages.push(res.data.resources);
+  //   });
+  // }
 
   handleShowingSelectedContent(pageIdRequested) {
     this.setState({
