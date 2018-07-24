@@ -5,7 +5,7 @@ import ContentDisplayProjectsList from './ContentDisplayProjectsList';
 import ProjectListArt from './ProjectListArt';
 import ProjectListWeb from './ProjectListWeb';
 import ArtComponent from './ArtComponent';
-import ThreeJsDemo from './ThreeJsDemo';
+import ThreeJsDemoContainer from './threeJsDemo/ThreeJsDemoContainer';
 import axios from 'axios';
 import cloudinary from 'cloudinary-core';
 import { projectInformationList, pageIdList } from './../constants/index';
@@ -92,7 +92,7 @@ class MainDisplayController extends React.Component {
 // THREE JS DEMO COMPONENT
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.threeJsDemo) {
       currentlyVisibleContent =
-        <ThreeJsDemo />;
+        <ThreeJsDemoContainer />;
 
 //ProjectListArt
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.projectListArt) {
