@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 
 export default class Renderer extends React.Component {
-  state = {width: 0, height:0};
+  state = {width:0, height:0};
 
   render() {
     const {style={}} = this.props
@@ -14,10 +14,6 @@ export default class Renderer extends React.Component {
       {React.Children.map(this.props.children,
         function(child) {
           return React.cloneElement(child, {
-            ...child.props,
-            renderer: {Renderer: renderer, width, height}
-          }),
-          console.log({
             ...child.props,
             renderer: {Renderer: renderer, width, height}
           })
@@ -37,9 +33,10 @@ export default class Renderer extends React.Component {
     if (!canvas) return
     const renderer = this.renderer = new THREE.WebGLRenderer({canvas});
     renderer.setClearColor(0xcccccc);
+    this.state = {width:1,height:1};
     this.setState({renderer});
     this.canvas = canvas;
-
+    this.resize();
     this.frame();
   }
 
@@ -56,8 +53,7 @@ export default class Renderer extends React.Component {
   frame = () => {
     this.raf = null;
     const {scene, camera, renderer} = this;
-    console.log(this);
-    // if (!scene || !camera || !renderer) return
+    if (!scene || !camera || !renderer) return
     renderer.render(scene, camera);
     this.raf = requestAnimationFrame(this.frame);
   }
@@ -84,9 +80,11 @@ Renderer.childContextTypes = {
 };
 
 export class Scene extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   scene = new THREE.Scene();
   componentDidMount() {
-    console.log(this.scene);
     this.context.setScene(this.scene);
   }
 
@@ -111,10 +109,14 @@ export class Scene extends React.Component {
 
     return <div>
       {React.Children.map(this.props.children,
-        child => React.cloneElement(child, {
-          ...child.props,
-          renderer
-        })
+        function(child) {
+          return (
+            React.cloneElement(child, {
+              ...child.props,
+              renderer
+            })
+          )
+        }
       )}
     </div>;
   }
@@ -124,7 +126,7 @@ Scene.childContextTypes = {
   Scene: PropTypes.object,
 };
 
-require('three-orbit-controls-loader')(THREE);
+require('three-orbit-controls-loader')(THREE)
 export class OrbitalCamera extends React.Component {
   componentDidMount() {
     this.update(this.props);
@@ -134,21 +136,22 @@ export class OrbitalCamera extends React.Component {
     this.update(incoming);
   }
 
-  update({position, enableZoom, renderer: {Renderer, width, height}}) {
+  update({position, renderer: {Renderer, width, height}}) {
     console.log('update', width, height, Renderer);
-    if(!width || !height || !Renderer) return;
+    if(!width || !height || !Renderer) return
     if(!this.camera)
       this.camera = new THREE.PerspectiveCamera(60, width / height, 1, 1000);
     const {camera} = this;
+    console.log(camera);
     camera.position.set(...position);
-    camera.updateProjectMatrix();
+    camera.updateProjectionMatrix();
     if(!this.controls) {
       console.log('binding', Renderer.domElement);
-      const c = this.controls = new THREE.OrbitalControls(
+      const c = this.controls = new THREE.OrbitControls(
         camera,
         Renderer.domElement);
       Renderer.controls = c;
-      c.enableZoom = enableZoom;
+      c.enableZoom = true;
       console.log('OrbitalControls', c);
     }
     console.log('calling camera', camera);
@@ -164,7 +167,6 @@ const ComponentFor = EntityClass => {
 
     constructor(props){
       super(props);
-      this.state = props.state;
     }
     componentDidMount() {
       this.updateEntity(this.props);
@@ -187,6 +189,7 @@ const ComponentFor = EntityClass => {
       Object.keys(props).map((key) => {
         if(this.entity[key] && this.entity[key].set) {
           this.entity[key].set(...props[key]);
+          console.log(this.entity);
         } else {
           this.entity[key] = props[key];
         }
