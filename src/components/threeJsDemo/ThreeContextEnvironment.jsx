@@ -57,7 +57,7 @@ export default class Renderer extends React.Component {
     this.raf = null;
     const {scene, camera, renderer} = this;
     console.log(this);
-    if (!scene || !camera || !renderer) return
+    // if (!scene || !camera || !renderer) return
     renderer.render(scene, camera);
     this.raf = requestAnimationFrame(this.frame);
   }
