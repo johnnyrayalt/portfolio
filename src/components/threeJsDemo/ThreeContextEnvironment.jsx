@@ -5,10 +5,13 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 
 export default class Renderer extends React.Component {
-  state = {width:0, height:0};
+  constructor(props) {
+    super(props);
+    this.state = {width:0, height:0};
+  }
 
   render() {
-    const {style={}} = this.props
+    const {style={}} = this.props;
     const {renderer, width, height} = this.state;
     return <canvas ref={this.canvasDidMount} style={style}>
       {React.Children.map(this.props.children,
@@ -32,18 +35,18 @@ export default class Renderer extends React.Component {
     window.renderer = this;
     if (!canvas) return
     const renderer = this.renderer = new THREE.WebGLRenderer({canvas});
-    renderer.setClearColor(0xcccccc);
-    this.state = {width:1,height:1};
+    renderer.setClearColor(0xffffff);
     this.setState({renderer});
     this.canvas = canvas;
-    this.resize();
+    this.resize()
     this.frame();
   }
 
-  resize() {
-    const {canvas, renderer: r} = this
-      , {devicePixelRatio: dpr} = window
-      , {innerWidth: width, innerHeight: height} = window;
+  resize = () => {
+    const {canvas, renderer: r} = this;
+    const {devicePixelRatio: dpr} = window;
+    const {innerWidth: width, innerHeight: height} = window;
+      console.log(window);
     this.setState({width, height});
     r.setPixelRatio(dpr);
     r.setSize(width, height);
@@ -189,7 +192,6 @@ const ComponentFor = EntityClass => {
       Object.keys(props).map((key) => {
         if(this.entity[key] && this.entity[key].set) {
           this.entity[key].set(...props[key]);
-          console.log(this.entity);
         } else {
           this.entity[key] = props[key];
         }
