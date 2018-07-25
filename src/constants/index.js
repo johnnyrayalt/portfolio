@@ -15,6 +15,11 @@ export const projectInformationList = {
     'title':'Optimized Living Spaces #1',
     'description':'Paint and screen print on paper with pencil',
     'yearStart':'2013',
+  },
+  'threeJsDemoContainer': {
+    'title':'Three.JS and React: 3D Objects As Components',
+    'description':'50 randomly placed spheres generated in real time using custom React components to map onto a canvas. Utilizes the Three.JS library. Heavily inspired by Ashi Krishnan\'s work.',
+    'controls':'Use the mouse wheel to zoom in or out / click and drag to move the camera.'
   }
 };
 

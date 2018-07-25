@@ -11,8 +11,8 @@ function NavLinksContainer(props) {
     <div className='navLinksContainerContainer'>
       <a onClick={handleClick.bind(this, 0)} className='link'>projects</a>
       <a onClick={handleClick.bind(this, 1)} className='link'>about</a>
-      <a id='githubLink' className='link' href='https://github.com/johnnyrayalt' target='_blank'>github ☍</a>
-      <a id='emailLink' className='link' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email ☍</a>
+      <a id='githubLink' className='external' href='https://github.com/johnnyrayalt' target='_blank'>github ☍</a>
+      <a id='emailLink' className='external' href='mailto:johnnyrayalt@gmail.com' target='_blank'>email ☍</a>
 
       <style jsx>{`
         .navLinksContainerContainer {
@@ -21,7 +21,7 @@ function NavLinksContainer(props) {
           margin: 0 100px 0 20px;
           min-width:100px;
         }
-        .link {
+        .link, .external {
           font-family: 'Montserrat', sans-serif;
           text-decoration:none;
           color:black;
@@ -29,7 +29,13 @@ function NavLinksContainer(props) {
           cursor:e-resize;
           user-select:none;
         }
-        a.link:hover {
+        .link {
+          cursor:e-resize;
+        }
+        .external {
+          cursor:ne-resize;
+        }
+        a.link:hover, a.external:hover {
           color:#0042ff;
           -webkit-transition: color 0.4s ease-in;
         }

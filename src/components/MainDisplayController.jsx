@@ -92,7 +92,8 @@ class MainDisplayController extends React.Component {
 // THREE JS DEMO COMPONENT
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.threeJsDemo) {
       currentlyVisibleContent =
-        <ThreeJsDemoContainer />;
+        <ThreeJsDemoContainer
+          currentPageInformation={this.state.currentPageInformation}/>;
 
 //ProjectListArt
     } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.projectListArt) {

@@ -7,7 +7,7 @@ function ProjectListWeb(props) {
   }
   return(
     <div className='projectListWebContainer'>
-      <a onClick={handleClick.bind(this, props.pageIdList.threeJsDemo)} className='link'>Three.JS and React: DOM manipulation in three dimensions</a>
+      <a onClick={handleClick.bind(this, props.pageIdList.threeJsDemo)} className='link'>Three.JS and React: 3D Objects As Components</a>
 
       <style jsx>{`
         .projectListWebContainer {
