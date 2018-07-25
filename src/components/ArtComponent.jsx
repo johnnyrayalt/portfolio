@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import cloudinary from 'cloudinary-core';
 import { v4 } from 'uuid';
-import Radium, { Style } from 'radium';
 import { CLOUD_NAME } from './../constants/env/cloudname';
 
 function ArtComponent(props) {
