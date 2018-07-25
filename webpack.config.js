@@ -32,6 +32,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: require.resolve("./src/components/App.jsx"),
+        use: "imports-loader?this=>window"
+      },
+      {
         test: /\.jsx?$/,
         enforce: "pre",
         loader: "eslint-loader",
@@ -47,12 +51,14 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: [
-            ["es2015", {"modules": false}],
+            "es2015",
             "react",
+            "stage-2"
           ],
           plugins: [
             "react-hot-loader/babel",
-            "styled-jsx/babel"
+            "styled-jsx/babel",
+            "transform-es2015-destructuring",
           ]
         }
       },
