@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 app.use(express.static(__dirname + '/build/'));
 app.listen(process.env.PORT || 8080);
 if(process.env.NODE_ENV === 'production'){
-    //set static folder
     app.use(express.static('client/build'));
 }
 app.get('*',(req, res) => {
