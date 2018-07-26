@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 
@@ -66,13 +67,14 @@ module.exports = {
       }
     ]
   },
+
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new UglifyJsPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template:'template.ejs',

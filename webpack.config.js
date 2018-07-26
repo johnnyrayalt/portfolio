@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 
@@ -77,6 +78,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       template:'template.ejs',
       appMountId: 'react-app-root',
