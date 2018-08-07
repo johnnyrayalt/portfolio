@@ -7,7 +7,9 @@
 /coverage
 
 # production
-
+.firebaserc
+database.rules.json
+firebase.json
 
 # misc
 .DS_Store
