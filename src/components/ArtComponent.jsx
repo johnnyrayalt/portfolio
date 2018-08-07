@@ -37,7 +37,7 @@ function ArtComponent(props) {
 
   function switchImages(image, i) {
     let result;
-    let url = 'http://res.cloudinary.com/wddmn666/image/upload/c_fit/v1/' + image.public_id;
+    let url = 'https://api.cloudinary.com/v1_1/' + image.public_id;
     if(props.currentPageId === props.pageIdList.artComponentHqObjective) {
       let imagePublicId = image.public_id;
       let textTransform = imagePublicId.replace('books/', '').replace('-Web', '').split(/(?=[A-Z])/).join(' ');
