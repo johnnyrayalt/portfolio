@@ -10,6 +10,7 @@
 .firebaserc
 database.rules.json
 firebase.json
+/build/**
 
 # misc
 .DS_Store
