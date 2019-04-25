@@ -1,3 +1,4 @@
+/* eslint-disable */
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -30,13 +31,13 @@ module.exports = {
         loader: 'css-loader',
         exclude: resolve(__dirname, "src/styles/styles.css"),
         options: {
-         modules: true,
-         localIdentName: '[name]__[local]___[hash:base64:5]'
-       }
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
       },
       {
-       test: resolve(__dirname, "src/styles/styles.css"),
-       loader: 'css-loader'
+        test: resolve(__dirname, "src/styles/styles.css"),
+        loader: 'css-loader'
       },
       {
         test: /\.jsx?$/,
@@ -77,7 +78,7 @@ module.exports = {
     new UglifyJsPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      template:'template.ejs',
+      template: 'template.ejs',
       appMountId: 'react-app-root',
       title: 'Johnny Ray Alt',
       filename: resolve(__dirname, "build", "index.html"),

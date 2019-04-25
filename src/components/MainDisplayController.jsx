@@ -9,6 +9,7 @@ import ThreeJsDemoContainer from './threeJsDemo/ThreeJsDemoContainer';
 import axios from 'axios';
 import cloudinary from 'cloudinary-core';
 import { projectInformationList, pageIdList } from './../constants/index';
+import { CLOUD_NAME } from './../constants/env/cloudname';
 
 class MainDisplayController extends React.Component {
   constructor(props) {
@@ -30,15 +31,15 @@ class MainDisplayController extends React.Component {
 
 
   // API IMAGE CALL
-  componentDidMount(){
+  componentDidMount() {
     let currentImages;
-    axios.get('http://res.cloudinary.com/wddmn666/image/list/alphaDecay.json').then(res => {
+    axios.get(`https://res.cloudinary.com/${CLOUD_NAME}/image/list/alphaDecay.json`).then(res => {
       this.state.currentImages.alphaDecayImages.push(res.data.resources);
     });
-    axios.get('http://res.cloudinary.com/wddmn666/image/list/optimizedLivingSpaces.json').then(res => {
+    axios.get(`https://res.cloudinary.com/${CLOUD_NAME}/image/list/optimizedLivingSpaces.json`).then(res => {
       this.state.currentImages.optimizedLivingSpacesImages.push(res.data.resources);
     });
-    axios.get('http://res.cloudinary.com/wddmn666/image/list/books.json').then(res => {
+    axios.get(`https://res.cloudinary.com/${CLOUD_NAME}/image/list/books.json`).then(res => {
       this.state.currentImages.booksImages.push(res.data.resources);
     });
   }
@@ -51,11 +52,11 @@ class MainDisplayController extends React.Component {
   }
 
   handleSettingArtComponentState(pageIdRequested) {
-    if(pageIdRequested === this.state.pageIdList.artComponentHqObjective) {
+    if (pageIdRequested === this.state.pageIdList.artComponentHqObjective) {
       this.setState({
         currentPageInformation: projectInformationList.hqObjective
       });
-    } else if(pageIdRequested === this.state.pageIdList.artComponentAlphaDecay) {
+    } else if (pageIdRequested === this.state.pageIdList.artComponentAlphaDecay) {
       this.setState({
         currentPageInformation: projectInformationList.alphaDecay
       });
@@ -69,42 +70,42 @@ class MainDisplayController extends React.Component {
   render() {
     let currentlyVisibleContent = null;
 
-//ContentDisplayProjectsList
-    if(this.state.isActive && this.state.pageId === this.state.pageIdList.contentDisplayProjectsList) {
+    //ContentDisplayProjectsList
+    if (this.state.isActive && this.state.pageId === this.state.pageIdList.contentDisplayProjectsList) {
       currentlyVisibleContent =
         <ContentDisplayProjectsList
           handleShowingSelectedContent={this.handleShowingSelectedContent} />;
 
-//ContentDisplayAbout
-    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.contentDisplayAbout) {
+      //ContentDisplayAbout
+    } else if (this.state.isActive && this.state.pageId === this.state.pageIdList.contentDisplayAbout) {
       currentlyVisibleContent =
         <ContentDisplayAbout
           handleShowingSelectedContent={this.handleShowingSelectedContent} />;
 
-//ProjectListWeb
-    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.projectListWeb) {
+      //ProjectListWeb
+    } else if (this.state.isActive && this.state.pageId === this.state.pageIdList.projectListWeb) {
       currentlyVisibleContent =
         <ProjectListWeb
           handleShowingSelectedContent={this.handleShowingSelectedContent}
           handleSettingArtComponentState={this.handleSettingArtComponentState}
           pageIdList={this.state.pageIdList} />;
 
-// THREE JS DEMO COMPONENT
-    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.threeJsDemo) {
+      // THREE JS DEMO COMPONENT
+    } else if (this.state.isActive && this.state.pageId === this.state.pageIdList.threeJsDemo) {
       currentlyVisibleContent =
         <ThreeJsDemoContainer
-          currentPageInformation={this.state.currentPageInformation}/>;
+          currentPageInformation={this.state.currentPageInformation} />;
 
-//ProjectListArt
-    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.projectListArt) {
+      //ProjectListArt
+    } else if (this.state.isActive && this.state.pageId === this.state.pageIdList.projectListArt) {
       currentlyVisibleContent =
         <ProjectListArt
           handleShowingSelectedContent={this.handleShowingSelectedContent}
           handleSettingArtComponentState={this.handleSettingArtComponentState}
-          pageIdList={this.state.pageIdList}/>;
+          pageIdList={this.state.pageIdList} />;
 
-// ART COMPONENT hqObjective
-    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentHqObjective) {
+      // ART COMPONENT hqObjective
+    } else if (this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentHqObjective) {
       currentlyVisibleContent =
         <ArtComponent
           pageIdList={this.state.pageIdList}
@@ -112,8 +113,8 @@ class MainDisplayController extends React.Component {
           currentImageContent={this.state.currentImages.booksImages}
           currentPageInformation={this.state.currentPageInformation} />;
 
-// ART COMPONENT alphaDecay
-    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentAlphaDecay) {
+      // ART COMPONENT alphaDecay
+    } else if (this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentAlphaDecay) {
       currentlyVisibleContent =
         <ArtComponent
           pageIdList={this.state.pageIdList}
@@ -121,8 +122,8 @@ class MainDisplayController extends React.Component {
           currentImageContent={this.state.currentImages.alphaDecayImages}
           currentPageInformation={this.state.currentPageInformation} />;
 
-// ART COMPONENT optimizedLivingSpacesImages
-    } else if(this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentOptimizedLivingSpaces) {
+      // ART COMPONENT optimizedLivingSpacesImages
+    } else if (this.state.isActive && this.state.pageId === this.state.pageIdList.artComponentOptimizedLivingSpaces) {
       currentlyVisibleContent =
         <ArtComponent
           pageIdList={this.state.pageIdList}
@@ -131,7 +132,7 @@ class MainDisplayController extends React.Component {
           currentPageInformation={this.state.currentPageInformation} />;
     }
 
-    return(
+    return (
       <div className='contentDisplayAreaContainer'>
         <NavLinksContainer
           handleShowingSelectedContent={this.handleShowingSelectedContent}

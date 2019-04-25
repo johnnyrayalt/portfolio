@@ -71,6 +71,6 @@ function ThreeJsDemoContainer(props) {
 
 ThreeJsDemoContainer.propTypes = {
   currentPageInformation: PropTypes.object,
-}
+};
 
 export default ThreeJsDemoContainer;

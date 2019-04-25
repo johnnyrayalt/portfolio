@@ -1,15 +1,14 @@
 import React from 'react';
 
 function ContentDisplayAbout() {
-  return(
+  return (
     <div className='contentDisplayAboutContainer'>
       <div className='text'>⚑ b. 1991 Los Angeles, California</div>
       <div className='text'>⚑ Currently lives and works in Portland, Oregon</div>
       <div className='text'>⚑ Web Developer</div>
       <div className='socialLinksContainer'>
+        <a href='https://www.github.com/johnnyrayalt/' target='_blank' className='socialLink'>GITHUB ☍</a>
         <a href='https://www.instagram.com/msninstantmessenger/' target='_blank' className='socialLink'>INSTAGRAM ☍</a>
-        <a href='https://twitter.com/001alt' target='_blank' className='socialLink'>TWITTER ☍</a>
-        <a href='https://www.facebook.com/johnny.ray.alt' target='_blank' className='socialLink'>FACEBOOK ☍</a>
       </div>
       <style jsx>{`
         .contentDisplayAboutContainer {

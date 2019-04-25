@@ -19,10 +19,10 @@ export default class Renderer extends React.Component {
           return React.cloneElement(child, {
             ...child.props,
             renderer: {Renderer: renderer, width, height}
-          })
+          });
         }
       )}
-    </canvas>
+    </canvas>;
   }
 
 
@@ -33,12 +33,12 @@ export default class Renderer extends React.Component {
 
   canvasDidMount = canvas => {
     window.renderer = this;
-    if (!canvas) return
+    if (!canvas) return;
     const renderer = this.renderer = new THREE.WebGLRenderer({canvas});
     renderer.setClearColor(0xffffff);
     this.setState({renderer});
     this.canvas = canvas;
-    this.resize()
+    this.resize();
     this.frame();
   }
 
@@ -56,7 +56,7 @@ export default class Renderer extends React.Component {
   frame = () => {
     this.raf = null;
     const {scene, camera, renderer} = this;
-    if (!scene || !camera || !renderer) return
+    if (!scene || !camera || !renderer) return;
     renderer.render(scene, camera);
     this.raf = requestAnimationFrame(this.frame);
   }
@@ -118,7 +118,7 @@ export class Scene extends React.Component {
               ...child.props,
               renderer
             })
-          )
+          );
         }
       )}
     </div>;
@@ -129,7 +129,7 @@ Scene.childContextTypes = {
   Scene: PropTypes.object,
 };
 
-require('three-orbit-controls-loader')(THREE)
+require('three-orbit-controls-loader')(THREE);
 export class OrbitalCamera extends React.Component {
   componentDidMount() {
     this.update(this.props);
@@ -141,7 +141,7 @@ export class OrbitalCamera extends React.Component {
 
   update({position, renderer: {Renderer, width, height}}) {
     console.log('update', width, height, Renderer);
-    if(!width || !height || !Renderer) return
+    if(!width || !height || !Renderer) return;
     if(!this.camera)
       this.camera = new THREE.PerspectiveCamera(60, width / height, 1, 1000);
     const {camera} = this;
